@@ -1,7 +1,7 @@
 import numpy as np
 from itertools import combinations
 import pandas as pd
-import utils
+from . import utils
 import time
 import matplotlib.pyplot as plt
 
@@ -301,5 +301,6 @@ class Lasso:
         plt.gca().invert_yaxis() 
         plt.show()
         return 0
+
 
 
