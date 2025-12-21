@@ -3,7 +3,7 @@ from sklearn import linear_model
 import pandas as pd
 import time
 from itertools import combinations
-import utils
+from . import utils
 import matplotlib.pyplot as plt
 
 class Stepwise:
@@ -345,4 +345,5 @@ class Stepwise:
         plt.gca().invert_yaxis() 
         plt.show()
         return 0
+
 
