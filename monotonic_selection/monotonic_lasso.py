@@ -202,7 +202,6 @@ class Lasso:
         plt.grid(lw=2)
         #plt.legend(fontsize=14)
         plt.show()
-        return 0
     
 
     #選択された変数の出力
@@ -214,7 +213,6 @@ class Lasso:
                 print(f"{self._feature_names_in_[i]}: {self.coef_[i]}")
         print(f"selected variables: {np.count_nonzero(self.coef_)}/{len(self._feature_names_in_)}")
         print("-"*60)
-        return 0
     
 
     #ファジィ測度の出力
@@ -236,8 +234,6 @@ class Lasso:
         for name, measure in zip(self._feature_names_in_, self.fuzzy_measures):
             print(f"{name}: {measure}")
         print("-"*60)
-
-        return 0
 
 
     #相互作用指標の出力
@@ -262,8 +258,6 @@ class Lasso:
         for name, val in zip(self._feature_names_in_, self.interaction_values):
             print(f"{name}: {val}")
         print("-"*60)
-
-        return 0
     
 
     #シャプレー値の出力
@@ -300,7 +294,3 @@ class Lasso:
         plt.title('Shapley Value')
         plt.gca().invert_yaxis() 
         plt.show()
-        return 0
-
-
-
