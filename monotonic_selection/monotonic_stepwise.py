@@ -251,13 +251,16 @@ class MonoStepwise:
 
     #選択された変数の出力
     def selected_variables(self):
+        selected_variables_set=[]
         title="selected variables"
         print(title.center(60,"-"))
         for i in range(len(self.coef_)):
             if self.coef_[i]!=0:
                 print(f"{self._feature_names_in_[i]}: {self.coef_[i]}")
+                selected_variables_set.append(self._feature_names_in_[i])
         print(f"selected variables: {np.count_nonzero(self.coef_)}/{len(self._feature_names_in_)}")
         print("-"*60)
+        return selected_variables_set
     
 
     #ファジィ測度の出力
@@ -340,6 +343,7 @@ class MonoStepwise:
         plt.gca().invert_yaxis() 
         plt.show()
         
+
 
 
 
