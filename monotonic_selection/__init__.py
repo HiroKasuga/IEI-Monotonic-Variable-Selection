@@ -1,2 +1,2 @@
-from .monotonic_lasso import Lasso
-from .monotonic_stepwise import Stepwise
+from .monotonic_lasso import MonoLasso
+from .monotonic_stepwise import MonoStepwise
