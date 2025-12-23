@@ -5,7 +5,7 @@ from . import utils
 import time
 import matplotlib.pyplot as plt
 
-class Lasso:
+class MonoLasso:
     def __init__(self, alpha: float=0.001, max_iter: int=1000, tol: float=1e-4, additivity_order: int=1, t_norm='min', log_display=None):
         self.alpha=alpha #L1正則化項のパラメータ
         self.max_iter=max_iter #最大繰り返し回数
@@ -294,5 +294,6 @@ class Lasso:
         plt.title('Shapley Value')
         plt.gca().invert_yaxis() 
         plt.show()
+
 
 
