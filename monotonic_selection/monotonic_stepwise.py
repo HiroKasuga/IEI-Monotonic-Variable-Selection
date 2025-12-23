@@ -6,7 +6,7 @@ from itertools import combinations
 from . import utils
 import matplotlib.pyplot as plt
 
-class MonoStepwise:
+class Stepwise:
     def __init__(self, criterion='f_value', max_iter: int=1000, additivity_order: int=1, t_norm='min'):
         self.criterion=criterion #判断基準
         self.max_iter=max_iter #最大繰り返し回数
@@ -340,4 +340,5 @@ class MonoStepwise:
         plt.gca().invert_yaxis() 
         plt.show()
         
+
 
