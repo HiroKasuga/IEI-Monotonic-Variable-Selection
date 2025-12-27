@@ -7,11 +7,12 @@ from . import utils
 import matplotlib.pyplot as plt
 
 class MonoStepwise:
-    def __init__(self, criterion='f_value', max_iter: int=1000, additivity_order: int=1, t_norm='min'):
+    def __init__(self, criterion='f_value', max_iter: int=1000, additivity_order: int=1, t_norm='min', log_display=None):
         self.criterion=criterion #判断基準
         self.max_iter=max_iter #最大繰り返し回数
         self.additivity_order=additivity_order #加法性加法性
         self.t_norm=t_norm #t-ノルム
+        self.log_display=log_display #ログの表示
         self._selected_variables = []
         self._name_to_index = None
         self._subset_map = None
@@ -155,7 +156,8 @@ class MonoStepwise:
             if best_v==None:
                 break
             self._selected_variables.append(best_v)
-            print(f"selection: {best_v}")
+            if log_display==True:
+                print(f"selection: {best_v}")
         return 0
 
 
@@ -204,7 +206,8 @@ class MonoStepwise:
             if worst_v==None:
                 break
             self._selected_variables.remove(worst_v)
-            print(f"elimination: {worst_v}")
+            if log_display==True:
+                print(f"elimination: {worst_v}")
         return 0
 
     
@@ -347,6 +350,7 @@ class MonoStepwise:
         plt.gca().invert_yaxis() 
         plt.show()
         
+
 
 
 
