@@ -137,17 +137,19 @@ class MonoStepwise:
                     weights=np.zeros(len(variables))
                     for idx, name in enumerate(new_selected_variables):
                         weights[self._name_to_index[name]]=model_new.coef_[idx]
-                    if self.monotonic_check(weights)==0:
-                        if self.criterion=='f_value':
-                            if dispersion_ratio > best_f_value:
+                    if self.criterion=='f_value':
+                        if dispersion_ratio > best_f_value:
+                            if self.monotonic_check(weights)==0:
                                 best_f_value=dispersion_ratio
                                 best_v=i
-                        elif self.criterion=='aic':
-                            if aic_new < best_aic:
+                    elif self.criterion=='aic':
+                        if aic_new < best_aic:
+                            if self.monotonic_check(weights)==0:
                                 best_aic=aic_new
                                 best_v=i
-                        elif self.criterion=='bic':
-                            if bic_new < best_bic:
+                    elif self.criterion=='bic':
+                        if bic_new < best_bic:
+                            if self.monotonic_check(weights)==0:
                                 best_bic=bic_new
                                 best_v=i
             if best_v==None:
@@ -184,17 +186,19 @@ class MonoStepwise:
                 weights=np.zeros(len(variables))
                 for idx, name in enumerate(new_selected_variables):
                     weights[self._name_to_index[name]]=model_new.coef_[idx]
-                if self.monotonic_check(weights)==0:
-                    if self.criterion=='f_value':
-                        if dispersion_ratio < worst_f_value:
+                if self.criterion=='f_value':
+                    if dispersion_ratio < worst_f_value:
+                        if self.monotonic_check(weights)==0:
                             worst_f_value=dispersion_ratio
                             worst_v=i
-                    elif self.criterion=='aic':
-                        if aic_new < worst_aic:
+                elif self.criterion=='aic':
+                    if aic_new < worst_aic:
+                        if self.monotonic_check(weights)==0:
                             worst_aic=aic_new
                             worst_v=i
-                    elif self.criterion=='bic':
-                        if bic_new < worst_bic:
+                elif self.criterion=='bic':
+                    if bic_new < worst_bic:
+                        if self.monotonic_check(weights)==0:
                             worst_bic=bic_new
                             worst_v=i
             if worst_v==None:
@@ -343,6 +347,7 @@ class MonoStepwise:
         plt.gca().invert_yaxis() 
         plt.show()
         
+
 
 
 
